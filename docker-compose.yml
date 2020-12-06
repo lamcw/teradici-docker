@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  pcoip-client:
+    build:
+      context: .
+      args:
+        username: ${username}
+        uid: ${uid}
+        gid: ${gid}
+    environment:
+      - DISPLAY
+      - LOGNAME
+    volumes:
+      - "/home/${LOGNAME}/.config/:/home/${LOGNAME}/.config/"
+      - "/tmp/.X11-unix:/tmp/.X11-unix"
+    network_mode: host
