@@ -15,3 +15,9 @@ services:
       - "/home/${LOGNAME}/.config/:/home/${LOGNAME}/.config/"
       - "/tmp/.X11-unix:/tmp/.X11-unix"
     network_mode: host
+    privileged: true
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun
+
